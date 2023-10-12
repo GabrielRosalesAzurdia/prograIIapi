@@ -76,10 +76,25 @@ App that holds the sells (carts), clients and the receipts
 
 ## Endpoints
 
-### User
+### All models
 
-host/users/
-    - Get all list of the users
-    - Post can post a new user
-    - /id GET can get a specific user
-    - /id PUT can update a specific user
+host/ app_name / model_name
+
+    - Get all list of the models
+    - Post can post a new item
+    - /id GET can get a specific item
+    - /id PUT can update a specific item
+
+Example: http://127.0.0.1:8000/sells/receipts/
+
+### Client receipts
+
+    pending...
+
+### User receipts
+
+    pending...
+
+### Create a sell, that has products who are born out of the product family
+
+    pending...
