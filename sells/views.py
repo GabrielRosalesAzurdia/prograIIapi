@@ -4,8 +4,8 @@ from .models import Sell, Receipt
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 
-from products.models import Product, ProductFamily
-from products.serializer import ProductSerializer, ProductFamilySerializer
+from products.models import Product, ProductFamily,Client
+from products.serializer import ProductSerializer
 
 import json
 
@@ -82,5 +82,18 @@ def deleteItemCart(request,sellid,productid,clientid):
 
 @api_view(['POST'])
 @permission_classes((permissions.IsAuthenticated,))
-def createReceipt(request,sellid,productid,clientid):
-    pass
+def createReceipt(request,sellid,clientid):
+    try:
+        sell = Sell.objects.get(pk=sellid)
+        try:
+            client = Client.objects.get(pk=clientid)
+            receipt = Receipt(employee = request.user, client = client, sell = sell, totalCost = sell.costs)
+            receipt.save()
+            sell.status = False
+            sell.save()
+            receipt_serializer = ReceiptSerializer(receipt)
+            return Response(receipt_serializer.data)
+        except Client.DoesNotExist:
+            return Response("Client does not exist")
+    except Sell.DoesNotExist:
+        return Response("Sell object does not exist")

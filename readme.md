@@ -114,7 +114,9 @@ Example : http://127.0.0.1:8000/sells/deleteitemcart/1/6/1
 
 ### create Receipt and sets sell status to false - POST
 
-    - ...
+    - host/sells/createreceipt/sellid/clientid
+
+Example : http://127.0.0.1:8000/sells/createreceipt/1/1
 
 ## Numbers that identify values
 
@@ -123,6 +125,7 @@ Example : http://127.0.0.1:8000/sells/deleteitemcart/1/6/1
     1. Do not create receipts from the viewset
     2. You have to create sells from the viewset
     3. You manage the products from the sell updating and deleting them
+    4. When creating a receipt the sell associated will be status False so is no longer usable
 
 ### Schedules
 
