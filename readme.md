@@ -89,11 +89,15 @@ Example: http://127.0.0.1:8000/sells/receipts/
 
 ### Client receipts
 
-    pending...
+    - host/products/clientReceipts/id/
+
+Example : http://127.0.0.1:8000/products/clientReceipts/1/
 
 ### User receipts
 
-    pending...
+    - host/users/userReceipts/
+
+Example: http://127.0.0.1:8000/users/userReceipts/
 
 ### Create a sell, that has products who are born out of the product family
 
