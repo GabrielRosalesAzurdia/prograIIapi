@@ -22,6 +22,7 @@ class ReceiptViewSet(viewsets.ModelViewSet):
 # Gets a sell given a sellid, productFamilyid and clientId, specially it has to be on a sutatus True
 # Creates a product out of a productFamily
 # Puts the product inside of the sell
+# updates costs
 
 # @csrf_exempt
 
@@ -37,6 +38,9 @@ def addItemCart(request,sellid,productFamilyid,clientid):
         product.save()
         serialized_product = ProductSerializer(product)
         sellArray.append(serialized_product.data)
+        sell.costs = 0
+        for product in sellArray:
+            sell.costs = sell.costs + product["priceAtMoment"]
         sell.products = json.dumps(sellArray)
         sell.save()
         serialized_sell = SellSerializer(sell)
@@ -48,6 +52,7 @@ def addItemCart(request,sellid,productFamilyid,clientid):
 # Gets a sell given a sellid, productFamilyid and clientId, specially it has to be on a sutatus True
 # searches an product by id
 # deletes that product from the array and from the database
+# updates costs
 
 @api_view(['DELETE'])
 @permission_classes((permissions.IsAuthenticated,))
@@ -55,17 +60,27 @@ def deleteItemCart(request,sellid,productid,clientid):
     try:
         sell = Sell.objects.get(pk=sellid, client = clientid, status=True)
         sellArray = json.loads(sell.products)
+        sell.costs = 0
         for product in sellArray:
+            sell.costs = sell.costs + product["priceAtMoment"]
             if product["id"] == productid:
                 try:
                     product_to_delete = Product.objects.get(pk=productid)
                     product_to_delete.delete()
                     sellArray.pop(sellArray.index(product))
-                    sell.products = json.dumps(sellArray)
-                    sell.save()
-                    serialized_sell = SellSerializer(sell)
-                    return Response(serialized_sell.data)
                 except Product.DoesNotExist:
-                    return Response("product does not exists")               
+                    return Response("product does not exists")         
+        sell.products = json.dumps(sellArray)
+        sell.save()
+        serialized_sell = SellSerializer(sell)
+        return Response(serialized_sell.data)      
     except Sell.DoesNotExist:
         return Response("Sell object does not exist")
+    
+# Creates a receipt
+# sets the sell status as False
+
+@api_view(['POST'])
+@permission_classes((permissions.IsAuthenticated,))
+def createReceipt(request,sellid,productid,clientid):
+    pass

@@ -80,8 +80,7 @@ App that holds the sells (carts), clients and the receipts
 
 ### All models
 
-host/ app_name / model_name
-
+    - host/ app_name / model_name
     - Get all list of the models
     - Post can post a new item
     - /id GET can get a specific item
@@ -112,3 +111,33 @@ Example : http://127.0.0.1:8000/sells/updateCart/1/1/1
     - host/sells/deleteitemcart/sellid/productid/clientid
 
 Example : http://127.0.0.1:8000/sells/deleteitemcart/1/6/1
+
+### create Receipt and sets sell status to false - POST
+
+    - ...
+
+## Numbers that identify values
+
+## Special Notes
+
+    1. Do not create receipts from the viewset
+    2. You have to create sells from the viewset
+    3. You manage the products from the sell updating and deleting them
+
+### Schedules
+
+    - 1 is 6:00am to 12:00pm
+    - 2 is 12:00pm to 6:00pm
+
+### Product Families
+
+    - 1 is Doritos
+    - 2 is Lays
+    - 3 is Jugo de manzana
+    - 4 is Jugo de durazno
+
+### Roles are
+
+    - 1 is employee
+    - 2 is supervisor
+
