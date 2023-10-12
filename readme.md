@@ -75,3 +75,11 @@ App that holds the individual products, suppliers and the family of products
 App that holds the sells (carts), clients and the receipts
 
 ## Endpoints
+
+### User
+
+host/users/
+    - Get all list of the users
+    - Post can post a new user
+    - /id GET can get a specific user
+    - /id PUT can update a specific user
