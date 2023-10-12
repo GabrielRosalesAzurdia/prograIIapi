@@ -10,7 +10,7 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = get_user_model().objects.all()
     serializer_class = UserSerializer
 
-# Gets a client related receipts
+# Gets a user related receipts
 # @csrf_exempt
 @api_view(['GET'])
 @permission_classes((permissions.IsAuthenticated,))

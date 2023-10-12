@@ -3,8 +3,10 @@ from django.contrib.auth import get_user_model
 from products.models import Client
 
 class Sell(models.Model):
-    products = models.TextField()
-    costs = models.IntegerField()
+    products = models.TextField(default="[]")
+    costs = models.IntegerField(default=0)
+    client = models.ForeignKey(Client,on_delete=models.CASCADE)
+    status = models.BooleanField(default=True)
     
     def __str__(self) -> str:
         return self.products

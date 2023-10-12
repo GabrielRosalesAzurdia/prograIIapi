@@ -20,7 +20,7 @@ class ProductFamily(models.Model):
         return "Family " + self.productName
 class Product(models.Model):
     productName = models.TextField()
-    expirationDate = models.DateField()
+    expirationDate = models.DateField(null=True)
     priceAtMoment = models.FloatField()
     ProductFamily = models.ForeignKey(ProductFamily, on_delete=models.CASCADE)
 

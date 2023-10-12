@@ -15,6 +15,7 @@ class ProductFamilyViewSet(viewsets.ModelViewSet):
     queryset = ProductFamily.objects.all()
     serializer_class = ProductFamilySerializer
     
+# Use it just to list products
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer

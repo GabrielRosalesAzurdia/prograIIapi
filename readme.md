@@ -52,6 +52,8 @@ password
 ### Sell:
     - Products (Array - Product[])
     - Cost (Int - Sumatory of all the PriceAtMoment)
+    - Client (Int - connection to the user)
+    - Status (Bool - if its a close car or it is the cart that the user is using)
 
 ### Receipt:
     - Employee (Employee)
@@ -87,18 +89,26 @@ host/ app_name / model_name
 
 Example: http://127.0.0.1:8000/sells/receipts/
 
-### Client receipts
+### Client receipts - GET
 
     - host/products/clientReceipts/id/
 
 Example : http://127.0.0.1:8000/products/clientReceipts/1/
 
-### User receipts
+### User receipts - GET
 
     - host/users/userReceipts/
 
 Example: http://127.0.0.1:8000/users/userReceipts/
 
-### Create a sell, that has products who are born out of the product family
+### Adds an item to a sell, that has products who are born out of the product family and assigned to a client - PUT
 
-    pending...
+    - host/sells/updateCart/sellid/productFamilyid/clientid
+
+Example : http://127.0.0.1:8000/sells/updateCart/1/1/1
+
+### Deletes an item to a sell - DELETE
+
+    - host/sells/deleteitemcart/sellid/productid/clientid
+
+Example : http://127.0.0.1:8000/sells/deleteitemcart/1/6/1
