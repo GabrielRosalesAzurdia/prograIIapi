@@ -6,6 +6,10 @@ Semester project, asked by the proffesor Byron Vasquez, this API is intended to 
 
 It solves the problem set by a pharmacy that needs a new system to handle sells and inventory.
 
+Super user test:
+test@gmail.com
+password
+
 ## Models:
 
 ### User (employee):
@@ -56,3 +60,18 @@ It solves the problem set by a pharmacy that needs a new system to handle sells 
     - TotalCost (Cost adding iva)
     - Date (Date)
 
+## Apps:
+
+### Users:
+
+App that holds the custom user model, used for the employees.
+
+### Products:
+
+App that holds the individual products, suppliers and the family of products
+
+### Sells:
+
+App that holds the sells (carts), clients and the receipts
+
+## Endpoints
