@@ -134,10 +134,13 @@ Example : http://127.0.0.1:8000/sells/createreceipt/1/1
 
 ### Product Families
 
-    - 1 is Doritos
-    - 2 is Lays
-    - 3 is Jugo de manzana
-    - 4 is Jugo de durazno
+    - 1 is Paracetamol
+    - 2 is Cebion
+    - 3 is Nauseol
+    - 4 is Suero
+    - 5 is Acetaminofen
+    - 6 is Chocolate
+    - 7 is Zorritone
 
 ### Roles are
 
