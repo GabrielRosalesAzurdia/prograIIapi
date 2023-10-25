@@ -9,11 +9,11 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     date_joined = models.DateTimeField(default=timezone.now)
-    rol = models.IntegerField()
-    phone = models.TextField()
-    adress = models.TextField()
-    employeeNumber = models.TextField()
-    schedule = models.IntegerField()
+    rol = models.IntegerField( default=0)
+    phone = models.TextField( default="")
+    adress = models.TextField( default="")
+    employeeNumber = models.TextField(default="")
+    schedule = models.IntegerField(default=0)
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["rol","phone","adress","employeeNumber","schedule"]
