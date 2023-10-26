@@ -102,7 +102,7 @@ Example: http://127.0.0.1:8000/users/userReceipts/
 
 ### Adds an item to a sell, that has products who are born out of the product family and assigned to a client - PUT
 
-    - host/sells/updateCart/sellid/productFamilyid/clientid
+    - host/sells/additemcart/sellid/productFamilyid/clientid
 
 Example : http://127.0.0.1:8000/sells/updateCart/1/1/1
 
